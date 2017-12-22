@@ -1,11 +1,16 @@
 #!/usr/bin/python3
 
+"""
+Not used in any assignment here
+Copied from UCSD Folder for reference
+"""
+
 import sys
 
 # prevents overflow
 INF = float('inf')
 
-def shortest_paths(adj, cost, s):
+def BellmanFord(adj, cost, s):
 
     n_v = len(adj)
     dist = [INF] * n_v
@@ -20,14 +25,15 @@ def shortest_paths(adj, cost, s):
                 if dist[n] > dist[v]+cost[v][j]:
                     dist[n] = dist[v]+cost[v][j]
                     prev[n] = v
+
+    # Run Bellman-Ford for one more cycle to detect negative cycle.
+    # If still shorter shortest paths remain, deal with the negative cycle recursively
     for v in range(n_v):
         for j in range(len(adj[v])):
             n = adj[v][j]
             if dist[n] > dist[v]+cost[v][j]:
                 bfs_neg(adj, v, dist)
-                # while dist[v] != -INF:    # problem: only follows the node in prev[v]
-                #     dist[v] = -INF
-                #     v = prev[v]
+
     return dist
 
 
@@ -38,13 +44,6 @@ def bfs_neg(adj, v, dist):
         if dist[n] != -INF:
             dist[n] = -INF
             bfs_neg(adj, n, dist)
-
-# Alternative Methods:
-# Keep array of negative-loop values
-# Exclude nodes in this array during relaxation
-# Put node in array if After relaxation, if dist[n] > prev[n] + w( prev[n], n)
-
-# Not verified yet
 
 
 if __name__ == '__main__':

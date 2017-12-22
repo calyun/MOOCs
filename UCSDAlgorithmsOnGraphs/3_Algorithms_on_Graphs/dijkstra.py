@@ -1,5 +1,13 @@
 #!/usr/bin/python3
 
+"""
+Dijkstra's Algorithm
+
+Best implementation (style, function, runtime) here:
+
+~/Desktop/Coursera/StanfordAlgorithms/AllPairsJohnson's.py
+"""
+
 import sys
 
 def distance(adj, cost, s, t):
@@ -15,7 +23,7 @@ def distance(adj, cost, s, t):
         for i in range(len(dists)):
             if not found[i] and dists[i] <= dists[v]:
                 v = i
-        # v is now min that has not yet shortest-path guarantee
+        # v is now min with shortest-path guarantee that hasn't broadcast it yet
         if v == t:
             break
         found[v] = True
@@ -29,43 +37,6 @@ def distance(adj, cost, s, t):
         return -1
     else:
         return dists[t]
-
-"""
-The Djikstra w/ dict implementation for ~/Desktop/Coursera/StanfordAlgorithms/Dijkstra.py
-Different organization of adj
-
-def Dijkstra(adj, start):
-
-    INF = 99999999
-    nodes = list(adj.keys())
-    #prev = {i = None for i in nodes}
-    visited = {i: None for i in nodes}
-    dists = {i: INF for i in nodes}
-
-    dists[start] = 0
-    visited_count = 0
-
-    print(adj)
-
-    while visited_count < len(nodes):
-        v = max(dists, key=dists.get)
-        for i in nodes:
-            if not visited[i] and dists[i] <= dists[v]:
-                v = i
-        # v is now min that has not yet shortest-path guarantee
-        visited[v] = True
-        visited_count += 1
-        for i in range(len(adj[v])):
-            n, cost = adj[v][i][0], int(adj[v][i][1])
-            if dists[n] > dists[v] + cost:
-                dists[n] = dists[v] + cost
-                #prev[n] = v
-
-    for i in nodes:
-        dists[i] = -1 if dists[i] == INF else dists[i]
-
-    return dists
-"""
 
 
 if __name__ == '__main__':

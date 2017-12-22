@@ -1,0 +1,5 @@
+2017-12-22  HunterYun  <hunteryun@hunteryun-Lenovo-LaVie-Z>
+
+	* Implemented bug-free All Pairs Shortest Paths algorithm (Johnson's)
+	* Proud that it didn't freeze my screen and processed Coursera's assignment files in 30 seconds
+

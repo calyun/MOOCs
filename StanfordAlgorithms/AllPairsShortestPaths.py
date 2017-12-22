@@ -26,9 +26,16 @@ memo[i,j,0] =   0 if i = j
                 cost(i,j) if (i,j) is an edge
                 +INF if i != j and (i,j) is not an edge
 
+
 """
 
 def AllPairsShortestPaths(V, edges):
+    """
+    N = # vertices (V), M = # edges
+
+    Time: O(N^3)
+    Space: O(N^2) (modify implementation to only keep prev and current info for k-dimension to get 2-D list)
+    """
 
     memo = [[[None for k in range(V)] for j in range(V)] for i in range(V)]
 
@@ -56,7 +63,7 @@ def AllPairsShortestPaths(V, edges):
                 memo[i][j][k] = min(exclude_k, include_k)
 
                 # Negative cycle found
-                if i == j and k == V-1 and memo[i][j][k] < 0:
+                if i == j and memo[i][j][k] < 0:
                     print("NULL found with i {}, j {}, k {}, val {}".format(i,j,k,memo[i][j][k]))
                     return 'NULL'
 
@@ -82,4 +89,4 @@ def alg(FNAME):
     return res
 
 
-# print(alg("4.1c.txt"))
+print(alg("4.1c.txt"))

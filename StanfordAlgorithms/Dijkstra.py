@@ -2,13 +2,11 @@
 
 
 def Dijkstra(adj, start):
-    """
-    Time: O(n * m)
-    Could be reduced to O(log n * m) with heap implementation
-    """
 
     INF = 99999999
     nodes = list(adj.keys())
+    N = len(nodes)
+
     #prev = {i = None for i in nodes}
     visited = {i: None for i in nodes}
     dists = {i: INF for i in nodes}
@@ -16,14 +14,12 @@ def Dijkstra(adj, start):
     dists[start] = 0
     visited_count = 0
 
-    print(adj)
-
-    while visited_count < len(nodes):
+    while visited_count < N:
         v = max(dists, key=dists.get)
         for i in nodes:
             if not visited[i] and dists[i] <= dists[v]:
                 v = i
-        # v is now min that has not yet shortest-path guarantee
+        # v is now min with shortest-path guarantee that hasn't broadcast it yet
         visited[v] = True
         visited_count += 1
         for i in range(len(adj[v])):
@@ -62,6 +58,7 @@ def evaluate(FNAME):
 
     for t in targets:
         res.append(distances[t])
+
     res = ','.join([str(i) for i in res])
     return res
 
@@ -69,11 +66,9 @@ def evaluate(FNAME):
 def alg(FNAME):
 
     res = evaluate(FNAME)
-    res = ",".join([str(i) for i in res])
-    print(res)
     return res
 
 
-FNAME = "2.2.in"
-res = evaluate(FNAME)
-print(res)
+# FNAME = "2.2.in"
+# res = evaluate(FNAME)
+# print(res)

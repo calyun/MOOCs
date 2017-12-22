@@ -1,5 +1,4 @@
 StanfordAlgorithms/stanford-algs
-StanfordAlgorithms/tester.py
 StanfordAlgorithms/__*
 StanfordAlgorithms/*.in
 StanfordAlgorithms/*.txt
@@ -7,3 +6,4 @@ StanfordAlgorithms/*y~
 StanfordAlgorithms/*t~
 StanfordAlgorithms/*n~
 StanfordAlgorithms/*~
+*~
