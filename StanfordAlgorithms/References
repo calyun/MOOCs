@@ -1,21 +1,5 @@
-The pset strict implementation testing gets very annoying!
-
-When I thoroughly understand the concepts but cannot pass the pset due to implementation variation, I can refer to these...
-
-https://github.com/SSQ/Coursera-Stanford-Algorithms-Specialization
-https://github.com/harshitkgupta/Algorithms-Design-and-Analysis-Part-1/tree/master/assignments
-
-
 =================================
 Stanford Tester
 
 hunteryun@hunteryun-Lenovo-LaVie-Z:~/Desktop/Coursera/StanfordAlgorithms$ 
 python3 tester.py ./StronglyConnectedComponents.py ./stanford-algs/testCases/course2/assignment1SCC name=alg
-
-
-
-tree
-no negative-cost cycle
-O(km)
-None of the others
-2^n
